@@ -689,6 +689,19 @@ function openpgp_packet_keymaterial() {
      * creates an OpenPGP key packet for the given key. much TODO in regards to s2k, subkeys.
      * @param keyType [int] follows the OpenPGP algorithm standard, IE 1 corresponds to RSA.
      * @param key [RSA.keyObject]
+     * @passphrase [string] key passphrase
+     * @s2kHash [byte] @TODO What is that?
+     * @symmetricEncryptionAlgorithm [int]:
+     *        1: IDEA [IDEA]
+     *        2: TripleDES (DES-EDE, [SCHNEIER] [HAC] - 168 bit key derived from 192)
+     *        3: CAST5 (128 bit key, as per [RFC2144])
+     *        4: Blowfish (128 bit key, 16 rounds) [BLOWFISH]
+     *        5: Reserved
+     *        6: Reserved
+     *        7: AES with 128-bit key [AES]
+     *        8: AES with 192-bit key
+     *        9: AES with 256-bit key
+     *       10: Twofish with 256-bit key [TWOFISH]
      * @return {body: [string]OpenPGP packet body contents, header: [string] OpenPGP packet header, string: [string] header+body}
      */
     function write_private_key(keyType, key, password, s2kHash, symmetricEncryptionAlgorithm, timePacket){

@@ -396,6 +396,19 @@ function openpgp_crypto_testRSA(key){
  * calls the necessary crypto functions to generate a keypair. Called directly by openpgp.js
  * @keyType [int] follows OpenPGP algorithm convention.
  * @numBits [int] number of bits to make the key to be generated
+ * @passphrase [string] key passphrase
+ * @s2kHash [byte] @TODO What is that?
+ * @symmetricEncryptionAlgorithm [int]:
+ *        1: IDEA [IDEA]
+ *        2: TripleDES (DES-EDE, [SCHNEIER] [HAC] - 168 bit key derived from 192)
+ *        3: CAST5 (128 bit key, as per [RFC2144])
+ *        4: Blowfish (128 bit key, 16 rounds) [BLOWFISH]
+ *        5: Reserved
+ *        6: Reserved
+ *        7: AES with 128-bit key [AES]
+ *        8: AES with 192-bit key
+ *        9: AES with 256-bit key
+ *       10: Twofish with 256-bit key [TWOFISH]
  * @return {privateKey: [openpgp_packet_keymaterial] , publicKey: [openpgp_packet_keymaterial]}
  */
 function openpgp_crypto_generateKeyPair(keyType, numBits, passphrase, s2kHash, symmetricEncryptionAlgorithm){
